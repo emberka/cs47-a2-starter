@@ -126,15 +126,13 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'android' ? 50 : 38
   },
   middleWrap: {
-    height: '80%',
+    height: '77%',
     top: '4%',
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 10,
     paddingBottom: 20,
-    alignItems: 'center',
-    borderColor: 'white',
-    borderWidth: 1
+    alignItems: 'center'
   },
   card: {
     height: '65%',
@@ -157,7 +155,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10
   },
   audioWrap: {
-    height: '26%', 
+    height: 150, 
     width: '95%',
     backgroundColor: Themes.dark.bgSecondary,
     top: '3.5%',
@@ -188,7 +186,7 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'android' ? 48 : 36
   },
   botbarWrap: {
-    height: '7%',
+    height: '10%',
     marginTop: 'auto',
     backgroundColor: Themes.dark.navigation
   },
@@ -197,7 +195,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    padding: '2%'
+    padding: '3%'
   },
   botbarIcons: {
     width: Platform.OS === 'android' ? 34 : 25, 

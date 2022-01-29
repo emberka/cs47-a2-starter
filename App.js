@@ -171,11 +171,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
-    paddingBottom: '8%'
+    paddingBottom: '5%'
   },
   audioTextBox: {
-    paddingTop: '6%',
-    paddingLeft: '5%'
+    paddingTop: 10,
+    paddingLeft: '3%'
   },
   playicon: {
     width: Platform.OS === 'android' ? 53 : 41,

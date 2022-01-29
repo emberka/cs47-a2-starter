@@ -1,5 +1,5 @@
 import AppLoading from 'expo-app-loading';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Platform, StyleSheet, Text, View, StatusBar, Image, ImageBackground, TouchableOpacity} from 'react-native';
 import { useFonts } from 'expo-font';
 import { Themes } from './assets/Themes';
 
@@ -17,18 +17,67 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text
-        style={{
-          fontFamily: 'Sydney', // test to see if the font is loaded, feel free to remove this
-        }}>
-        Open up App.js to start working on your app!
-      </Text>
-      <Text
-        style={{
-          fontFamily: 'Sydney-Bold', // test to see if the font is loaded, feel free to remove this
-        }}>
-        ~Good luck~
-      </Text>
+        <View style={styles.topbarWrap}>
+            <View style={styles.topbar}>
+                <TouchableOpacity>
+                    <Image style={styles.topicon} source={require('./assets/Icons/menu_dark.png')}/>
+                </TouchableOpacity>
+                <Text style={styles.titletext}> 
+                    ensom
+                </Text>
+                <TouchableOpacity>
+                    <Image style={styles.topicon} source={require('./assets/Icons/moon.png')}/>
+                </TouchableOpacity>
+            </View>
+        </View>
+        <View style={styles.middleWrap}>
+            <View style={styles.card}>
+                <ImageBackground style={styles.profilePic} imageStyle={{borderRadius: 15}} source={require('./assets/Profiles/mtl.jpg')}>
+                    <View style={styles.profileTextWrap}>
+                        <Text style={styles.text}> MTL </Text>
+                        <Text style={styles.subtext}>  2 miles away </Text>
+                    </View>
+                </ImageBackground>
+            </View>
+            <View style={styles.audioWrap}>
+                <View style={styles.audioTextBox}>
+                    <Text style={styles.audiotext}> My hottest take </Text>
+                </View>
+                <View style={styles.audio}>
+                    <Image style={styles.playicon} source={require('./assets/Icons/player_dark.png')}/>
+                    <Image style={styles.waveform} source={require('./assets/Icons/audio_waveform_dark.png')}/>
+                </View>
+            </View>
+        </View>
+        <View style={styles.botbarWrap}>
+            <View style={styles.botbar}>
+                <TouchableOpacity>
+                    <View style={{flex: 1, alignItems: 'center'}}>
+                        <View style={{paddingBottom: 3}}>
+                            <Image style={styles.botbarIcons} source={require('./assets/Icons/discover_dark.png')}/>
+                        </View>
+                        <Text style={styles.botbarText}> Discover </Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={{flex: 1, alignItems: 'center'}}>
+                        <View style={{paddingBottom: 3}}>
+                            <Image style={styles.botbarIcons} source={require('./assets/Icons/heart_dark.png')}/>
+                        </View>
+                        <Text style={styles.botbarText}> Matches </Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity>
+                    <View style={{flex: 1, alignItems: 'center'}}>
+                        <View style={{paddingBottom: 3}}>
+                            <Image style={styles.botbarIcons} source={require('./assets/Icons/messages_dark.png')}/>
+                        </View>
+                        <Text style={styles.botbarText}> DMs </Text>
+                    </View>
+                </TouchableOpacity>
+
+            </View>
+        </View>
     </View>
   );
 }
@@ -36,8 +85,126 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Themes.dark.bg,
+  },
+  topbarWrap: {
+    height: Platform.OS === 'android' ? 63 : 51,
+    top: '2%'
+  },
+  topbar: {
+    flex: 1,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 8,
+    paddingBottom: 8
+  },
+  titletext: {
+    color: Themes.dark.text,
+    fontFamily: 'Sydney-Bold',
+    fontSize: 32
+  },
+  text: {
+    color: Themes.dark.text,
+    fontFamily: 'Sydney',
+    fontSize: 34
+  },
+  subtext: {
+    color: Themes.dark.text,
+    fontFamily: 'Sydney',
+    fontSize: 16
+  },
+  audiotext: {
+    color: Themes.dark.text,
+    fontFamily: 'Sydney',
+    fontSize: 24
+  },
+  topicon: {
+    width: Platform.OS === 'android' ? 50 : 38,
+    height: Platform.OS === 'android' ? 50 : 38
+  },
+  middleWrap: {
+    height: Platform.OS === 'android' ? 567 : 459,
+    top: '4%',
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingTop: 10,
+    paddingBottom: 20,
+    alignItems: 'center'
+  },
+  card: {
+    height: '65%',
+    width: '95%',
+    borderRadius: 15,
+    shadowColor: Themes.dark.shadows.shadowColor,
+    shadowOpacity: Themes.dark.shadows.shadowOpacity,
+    shadowRadius: Themes.dark.shadows.shadowRadius,
+    shadowOffset: Themes.dark.shadows.shadowOffset,
+    elevation: 8
+  },
+  profilePic: {
+    flex: 1,
+    height: undefined,
+    width: undefined
+  },
+  profileTextWrap: {
+    flex: 1, 
+    justifyContent: 'space-between',
+    paddingBottom: 10
+  },
+  audioWrap: {
+    height: '26%', 
+    width: '95%',
+    backgroundColor: Themes.dark.bgSecondary,
+    top: '3.5%',
+    borderRadius: 30,
+    shadowColor: Themes.dark.shadows.shadowColor,
+    shadowOpacity: Themes.dark.shadows.shadowOpacity,
+    shadowRadius: Themes.dark.shadows.shadowRadius,
+    shadowOffset: Themes.dark.shadows.shadowOffset,
+    elevation: 15
+  },
+  audio: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    paddingBottom: '8%'
+  },
+  audioTextBox: {
+    paddingTop: '6%',
+    paddingLeft: '5%'
+  },
+  playicon: {
+    width: Platform.OS === 'android' ? 53 : 41,
+    height: Platform.OS === 'android' ? 53 : 41
+  },
+  waveform: {
+    width: Platform.OS === 'android' ? 251 : 197,
+    height: Platform.OS === 'android' ? 48 : 36
+  },
+  botbarWrap: {
+    height: Platform.OS === 'android' ? 70 : 58,
+    marginTop: 'auto',
+    backgroundColor: Themes.dark.navigation
+  },
+  botbar: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    padding: '2%'
+  },
+  botbarIcons: {
+    width: Platform.OS === 'android' ? 34 : 25, 
+    height: Platform.OS === 'android' ? 34 : 25,
+    resizeMode: 'contain'
+  },
+  botbarText: {
+    fontFamily: 'Sydney',
+    color: Themes.dark.textSecondary,
+    fontSize: 16
   },
 });

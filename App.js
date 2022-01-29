@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 8,
+    paddingTop: 12,
     paddingBottom: 8
   },
   titletext: {
@@ -126,13 +126,15 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'android' ? 50 : 38
   },
   middleWrap: {
-    height: Platform.OS === 'android' ? 567 : 459,
+    height: '80%',
     top: '4%',
     paddingLeft: 15,
     paddingRight: 15,
     paddingTop: 10,
     paddingBottom: 20,
-    alignItems: 'center'
+    alignItems: 'center',
+    borderColor: 'white',
+    borderWidth: 1
   },
   card: {
     height: '65%',
@@ -186,7 +188,7 @@ const styles = StyleSheet.create({
     height: Platform.OS === 'android' ? 48 : 36
   },
   botbarWrap: {
-    height: Platform.OS === 'android' ? 70 : 58,
+    height: '7%',
     marginTop: 'auto',
     backgroundColor: Themes.dark.navigation
   },
